@@ -985,4 +985,33 @@ body {
   animation-play-state: paused !important;
 }
 
+.user-name {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  z-index: 100;
+  text-shadow: 0 2px 8px #000, 0 0 2px #39c6d6;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  animation: fade-in-user-name 1.2s ease 1.1s forwards;
+}
+
+@keyframes fade-in-user-name {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-30px) scale(0.95);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
