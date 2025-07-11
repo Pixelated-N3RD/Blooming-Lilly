@@ -10,6 +10,29 @@
     
 <body class="not-loaded">
     <div id="user-name" class="user-name"></div>
+    <div id="personal-message" class="personal-message"></div>
+    
+    <!-- Name Input Modal -->
+    <div id="name-modal" class="name-modal">
+      <div class="name-modal-overlay"></div>
+      <div class="name-modal-content">
+        <div class="name-modal-header">
+          <h2>Welcome to my Garden</h2>
+          <p>Please enter your name</p>
+        </div>
+        <form id="name-form" class="name-form">
+          <div class="input-group">
+            <input type="text" id="name-input" placeholder="Enter your name..." required>
+            <div class="input-border"></div>
+          </div>
+          <button type="submit" class="submit-btn">
+            <span>Enter Garden</span>
+            <div class="btn-glow"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+    
     <div class="night"></div>
     <div class="flowers">
       <div class="flower flower--1">
