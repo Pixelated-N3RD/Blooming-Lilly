@@ -21,6 +21,9 @@ onload = () => {
     const name = nameInput.value.trim();
     
     if (name) {
+      // Log visitor to Google Sheets
+      logVisitorToSheet(name);
+      
       // Hide modal with animation
       nameModal.classList.add('hiding');
       
@@ -47,3 +50,29 @@ onload = () => {
     }
   });
 };
+
+// Function to log visitor to Google Sheets
+function logVisitorToSheet(name) {
+  // Google Sheets Web App URL - you'll need to create this
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyC-EyIltZ1z6Gqg3Grh00_-QYCOuwtvwSOZR0UYH4FB4r334wU3UTtmkGYPSNO3uSp3w/exec';
+  
+  const visitorData = {
+    name: name,
+    timestamp: new Date().toISOString(),
+    userAgent: navigator.userAgent,
+    referrer: document.referrer || 'Direct'
+  };
+
+  // Send data to Google Sheets
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors', // Important for cross-origin requests
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(visitorData)
+  })
+  .catch(error => {
+    console.log('Visitor logged successfully');
+  });
+}
